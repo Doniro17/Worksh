@@ -18,6 +18,7 @@ public final class Main {
         try {
             Triangle triangle = new Triangle(4, 4, 6);
             System.out.println(triangle.toString());
+            System.out.println("Triangle perimeter: ");
             triangle.perimeter();
         } catch (TriangleException e) {
             System.out.println(e.getMessage());
