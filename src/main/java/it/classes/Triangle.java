@@ -19,9 +19,11 @@ public class Triangle implements IPolygon {
     private Triangle() {
     }
 //
+
     /**
      * public Triangle constructor
-     * @param fstSegment first triangle segment
+     *
+     * @param fstSegment  first triangle segment
      * @param scndSegment second triangle segment
      * @param thrdSegment third triangle segment
      * @throws TriangleException own exception for triangle
@@ -42,19 +44,21 @@ public class Triangle implements IPolygon {
      * calc perimetr of triangle
      * @return return statement
      */
-    public double perimetr() {
+    public double perimeter() {
 
         return fstSegment + scndSegment + thrdSegment;
     }
 
     /**
      * String representation of instance triangle
+     *
      * @return return statement
      */
     public String toString() {
 
         StringBuilder str = new StringBuilder();
         str
+                .append("Triangle segments lengths ")
                 .append(fstSegment)
                 .append(", ")
                 .append(scndSegment)

@@ -36,14 +36,12 @@ public final class Quadrangle implements IPolygon {
 
     /**
      * method for perimetr calc
-     *
      * @return return statement
      */
-    public double perimetr() {
+    public double perimeter() {
 
-        return frthSegment + scndSegment + thrdSegment + fstSegment;
+        return fstSegment + scndSegment + thrdSegment + frthSegment;
     }
-//
 
     /**
      * String representation of instance qudrangle

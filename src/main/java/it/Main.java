@@ -16,9 +16,9 @@ public final class Main {
     public static void main(final String[] args) {
 
         try {
-            Triangle triangle = new Triangle(4, 1, 6);
+            Triangle triangle = new Triangle(4, 4, 6);
             System.out.println(triangle.toString());
-            System.out.println(triangle.perimetr());
+            triangle.perimeter();
         } catch (TriangleException e) {
             System.out.println(e.getMessage());
         }
