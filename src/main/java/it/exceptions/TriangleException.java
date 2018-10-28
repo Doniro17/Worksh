@@ -1,13 +1,12 @@
 package it.exceptions;
 
 /**
- * triangle ex
+ * triangle existing exception
  */
 public class TriangleException extends Exception {
 
     /**
-     * constructor
-     *
+     * public constructor with message output
      * @param message output string
      */
     public TriangleException(final String message) {

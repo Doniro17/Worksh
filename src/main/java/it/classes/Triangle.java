@@ -5,7 +5,10 @@ import it.interfaces.IPolygon;
 
 /**
  * triangle class
- *
+ * contains 3 variables for create an class object
+ * public & private constructor
+ * methot for perimetr calc
+ * toString method impl
  */
 public class Triangle implements IPolygon {
 
@@ -16,7 +19,8 @@ public class Triangle implements IPolygon {
     private Triangle() {
     }
 //
-    /**desc
+    /**
+     * public Triangle constructor
      * @param fstSegment first triangle segment
      * @param scndSegment second triangle segment
      * @param thrdSegment third triangle segment
@@ -24,7 +28,9 @@ public class Triangle implements IPolygon {
      */
     public Triangle(final double fstSegment, final double scndSegment, final double thrdSegment) throws TriangleException {
 
-        if (fstSegment + scndSegment <= thrdSegment) {
+        if ((fstSegment + scndSegment <= thrdSegment) ||
+                (fstSegment + thrdSegment <= scndSegment) ||
+                (thrdSegment + scndSegment <= fstSegment)) {
             throw new TriangleException("not a triangle");
         }
         this.fstSegment = fstSegment;
@@ -42,13 +48,19 @@ public class Triangle implements IPolygon {
     }
 
     /**
-     * basic to string method
+     * String representation of instance triangle
      * @return return statement
      */
     public String toString() {
 
         StringBuilder str = new StringBuilder();
-        str.append(fstSegment + ", " + scndSegment + ", " + thrdSegment);
+        str
+                .append(fstSegment)
+                .append(", ")
+                .append(scndSegment)
+                .append(", ")
+                .append(thrdSegment)
+                .append(", ");
         return str.toString();
     }
 

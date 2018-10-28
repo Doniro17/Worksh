@@ -1,7 +1,7 @@
 package it.interfaces;
 
 /**
- * interfase for figure
+ * interface for polygon
  */
 public interface IPolygon {
 
