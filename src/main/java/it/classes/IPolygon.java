@@ -1,4 +1,4 @@
-package it.interfaces;
+package it.classes;
 
 /**
  * interface for polygon

@@ -1,7 +1,6 @@
 package it.classes;
 
 import it.exceptions.TriangleException;
-import it.interfaces.IPolygon;
 
 /**
  * triangle class
@@ -54,6 +53,7 @@ public class Triangle implements IPolygon {
      *
      * @return return statement
      */
+    @Override
     public String toString() {
 
         StringBuilder str = new StringBuilder();

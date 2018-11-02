@@ -1,7 +1,5 @@
 package it.classes;
 
-import it.interfaces.IPolygon;
-
 /**
  * class for Quadrangle
  * contains 4 variables for create an class object
@@ -48,6 +46,7 @@ public final class Quadrangle implements IPolygon {
      *
      * @return return statement
      */
+    @Override
     public String toString() {
 
         StringBuilder str = new StringBuilder();
