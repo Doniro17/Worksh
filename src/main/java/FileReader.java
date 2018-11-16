@@ -1,50 +1,62 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileReader {
+    private File file;
+    FileReader (File file) {
+        this.file = file;
+    }
 
+    private List<String> list = new ArrayList<>();
     private int methodCallCount = 1;
 
-    public String readLine(String path) throws IOException {
-        File file = new File(path);
+    public List<String> getList() {
+        return list;
+    }
+
+    public String readLine() throws IOException {
+
         StringBuilder sb = new StringBuilder();
-        int stringCount = 0;
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(path))) {
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
+            if (!reader.ready()) {
+                throw new IOException("Файл пустой");
+            }
             String line;
-            if (hasMoreLines(methodCallCount, path)) {
+            if (hasMoreLines()) {
                 while ((line = reader.readLine()) != null) {
-                    if (stringCount == methodCallCount - 1) {
-                        break;
-                    }
-                    stringCount++;
+                    list.add(line);
                 }
-                methodCallCount++;
                 sb
                         .append(file.getName())
                         .append(" Line ")
-                        .append(stringCount+1)
+                        .append(methodCallCount)
                         .append(": ")
-                        .append(line);
+                        .append(list.get(methodCallCount - 1));
+                methodCallCount++;
                 reader.close();
                 return sb.toString();
             } else {
                 return "No more lines";
             }
+        }catch (IOException e) {
+                System.out.println("Файл не найден");
+                throw new IOException(e);
         }
 
     }
 
-    private boolean hasMoreLines(int count, String path) throws IOException {
-        File file = new File(path);
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(path))) {
-            String str;
+    public boolean hasMoreLines() throws IOException {
+
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
             int stringCount = 0;
-            while ((str = reader.readLine()) != null) {
+            while (( reader.readLine()) != null) {
                 stringCount++;
             }
             reader.close();
-            if (count > stringCount) {
+            if (methodCallCount > stringCount) {
                 return false;
             } else return true;
         }

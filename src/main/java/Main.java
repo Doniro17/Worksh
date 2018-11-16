@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
     /**
@@ -22,27 +23,23 @@ public class Main {
         try (InputStream bufferedStream = new BufferedInputStream(new FileInputStream(fileExist))) {
             byte[] bytes = new byte[(int) fileExist.length()];
             bufferedStream.read(bytes);
-            bufferedStream.close();
 
-            try (PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileNew), "utf-8"))) {
+
+            try (PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fileNew), StandardCharsets.UTF_8))) {
 
                 String name = "Афанасьев";
-                printWriter.println(new String((bytes), "utf-8"));
-                printWriter.println(new String(name.getBytes(), "utf-8"));
-
+                printWriter.println(new String((bytes), StandardCharsets.UTF_8));
+                printWriter.println(new String(name.getBytes(), StandardCharsets.UTF_8));
                 printWriter.flush();
-                printWriter.close();
             }
         }
-        FileReader reader = new FileReader();
-
+        FileReader reader = new FileReader(fileExist);
+        System.out.println(reader.readLine());
+        System.out.println(reader.readLine());
+        System.out.println(reader.readLine());
         Example example = new Example();
-        System.out.println(example.getLongestLineCharsCount(reader, "Homework3.txt"));
+        System.out.println(example.getLongestLineCharsCount(reader));
 
-       /* System.out.println(reader.readLine("Homework3.txt"));
-        System.out.println(reader.readLine("Homework3.txt"));
-        System.out.println(reader.readLine("Homework3.txt"));
-        System.out.println(reader.readLine("Homework3.txt"));*/
 
     }
 }

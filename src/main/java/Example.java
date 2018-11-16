@@ -1,17 +1,23 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Example {
 
-    public int getLongestLineCharsCount (FileReader reader, String path) throws IOException {
+    public int getLongestLineCharsCount (FileReader reader) throws IOException {
         int maxLength = -1;
-        while (reader.readLine(path).equals("No more lines")) {
-            if (reader.readLine(path).length() > maxLength) {
-                maxLength = reader.readLine(path).length();
-                System.out.println(reader.readLine(path));
+        List<String> list = new ArrayList<>();
+        int n = 0;
+
+        while (reader.hasMoreLines()) {
+            list.add(reader.readLine());
+        }
+        for (String aList : list) {
+            if (aList.length() > maxLength) {
+                maxLength = aList.length();
             }
         }
-        System.out.println(reader.readLine(path));
-
         return maxLength;
     }
 }
