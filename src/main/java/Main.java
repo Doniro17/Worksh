@@ -33,13 +33,7 @@ public class Main {
                 printWriter.flush();
             }
         }
-        FileReader reader = new FileReader(fileExist);
-        System.out.println(reader.readLine());
-        System.out.println(reader.readLine());
-        System.out.println(reader.readLine());
-        Example example = new Example();
-        System.out.println(example.getLongestLineCharsCount(reader));
-
+       
 
     }
 }
