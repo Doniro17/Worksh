@@ -11,6 +11,7 @@ public class Example {
         while (reader.hasMoreLines()) {
             list.add(reader.readLine());
         }
+
         for (String aList : list) {
             if (aList.length() > maxLength) {
                 maxLength = aList.length();

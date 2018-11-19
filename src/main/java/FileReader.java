@@ -23,10 +23,6 @@ public class FileReader {
             while ((line = reader.readLine()) != null) {
                 list.add(line);
             }
-
-        } catch (IOException e) {
-            System.out.println("Файл не найден");
-            throw new IOException(e);
         }
     }
 
