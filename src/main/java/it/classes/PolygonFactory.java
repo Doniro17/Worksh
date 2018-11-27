@@ -56,15 +56,15 @@ public class PolygonFactory {
             while ((line = reader.readLine()) != null) {
                 Collections.addAll(segments, line.split(" "));
                 if (segments.size() == 3) {
-                    list.add(new Triangle((double) Integer.parseInt(segments.get(0)),
-                            (double) Integer.parseInt(segments.get(1)),
-                            (double) Integer.parseInt(segments.get(2))));
+                    list.add(new Triangle(Double.parseDouble(segments.get(0)),
+                            Double.parseDouble(segments.get(1)),
+                            Double.parseDouble(segments.get(2))));
                 }
                 if (segments.size() == 4) {
-                    list.add(new Quadrangle((double) Integer.parseInt(segments.get(0)),
-                            (double) Integer.parseInt(segments.get(1)),
-                            (double) Integer.parseInt(segments.get(2)),
-                            (double) Integer.parseInt(segments.get(3))));
+                    list.add(new Quadrangle(Double.parseDouble(segments.get(0)),
+                            Double.parseDouble(segments.get(1)),
+                            Double.parseDouble(segments.get(2)),
+                            Double.parseDouble(segments.get(3))));
                 }
                 segments = new ArrayList<>();
             }
