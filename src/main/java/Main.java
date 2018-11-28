@@ -11,5 +11,11 @@ public class Main {
         Set<String> keySet = hashmap.keySet();
         Collection collection = hashmap.values();
 
+        StringInMap str = new StringInMap();
+        List<String> list = new ArrayList<>();
+        list.add("Luk");
+        list.add("Beg");
+        System.out.println(str.stringToMap(list).values());
+
     }
 }
