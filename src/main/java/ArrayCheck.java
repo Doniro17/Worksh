@@ -13,8 +13,8 @@ public class ArrayCheck {
                     checkedList.add(aSet);
                     break;
                 }
-                i = 0;
             }
+
         }
         return checkedList;
     }

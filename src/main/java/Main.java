@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
@@ -13,7 +10,5 @@ public class Main {
         hashmap.put("thrd", "zaic");
         Set<String> keySet = hashmap.keySet();
         Collection collection = hashmap.values();
-
-
     }
 }
