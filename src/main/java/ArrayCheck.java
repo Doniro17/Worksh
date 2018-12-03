@@ -4,16 +4,20 @@ import java.util.Set;
 
 public class ArrayCheck {
 
-    public List<Set> SetsContainsSet(List<Set> intList, Set<Integer> array) {
+    public List<Set> setsContainsSet(List<Set> intList, Set<Integer> array) {
         List<Set> checkedList = new ArrayList<>();
-
+        boolean contains = false;
         for (Set aSet : intList) {
             for (int i = 0; i < array.size(); i++) {
                 if (aSet.contains(array.toArray()[i])) {
-                    checkedList.add(aSet);
+                    contains = true;
                     break;
                 }
             }
+            if (!contains) {
+                checkedList.add(aSet);
+            }
+            contains = false;
 
         }
         return checkedList;
