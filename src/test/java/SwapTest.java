@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -18,9 +19,9 @@ public class SwapTest {
         list.add("ab");
         list.add("ad");
         list.add("da");
-        List<String> mockList = mock(List.class);
-        when(mockList.toString()).thenReturn("[da, ad, ab, dc]");
-        assertEquals(mockList.toString(), swap.doSwap(list).toString());
+        List<String> expectedList = new ArrayList<>();
+        Collections.addAll(expectedList, "da", "ad", "ab", "dc");
+        assertEquals(expectedList, swap.doSwap(list));
     }
     /**
      * checks ьуерщв цщкл with an empty list
@@ -43,6 +44,18 @@ public class SwapTest {
         list.add("Bb");
         list.add("cd");
         list.add("da");
-        assertEquals(list.toString(), swap.doSwap(list).toString());
+        assertEquals(list, swap.doSwap(list));
+    }
+    @Test
+    public void nwapTest() {
+        Swap swap = new Swap();
+        List<String> list = new ArrayList<>();
+        list.add("ac");
+        list.add("ab");
+        list.add("aE");
+        list.add("aN");
+        List<String> expectedList = new ArrayList<>();
+        Collections.addAll(expectedList, "ab", "ac", "aE", "aN");
+        assertEquals(expectedList, swap.doSwap(list));
     }
 }
